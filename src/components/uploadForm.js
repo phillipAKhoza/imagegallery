@@ -22,7 +22,10 @@ const UploadForm = () => {
     }
     return ( 
         <form>
-            <input type="file" onChange={changeHandler} />
+            <label>
+                <input type="file" onChange={changeHandler} />
+                <span>+</span>
+            </label>
             <div className="output">
                 {
                     error && <div className="error">{error}</div>
@@ -30,7 +33,7 @@ const UploadForm = () => {
                 {
                     image && <div>{image.name}</div>
                 }
-                {image && <ProgressBar  image={image} setImage={setImage}/>}
+                { image && <ProgressBar  image={image} setImage={setImage} /> }
             </div>
         </form>
      );
