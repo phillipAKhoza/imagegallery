@@ -32,7 +32,7 @@ const useStorage = (image) => {
         uploadBytesResumable(storageRef, image ).on('state_changed' ,(snap)=>{
             let percentage = (snap.bytesTransferred / snap.totalBytes) * 100;
             setProgress(percentage);
-            console.log(percentage);
+            // console.log(percentage);
         },(error) =>{
             // Handle unsuccessful uploads
             setError(error);
@@ -51,7 +51,7 @@ const useStorage = (image) => {
             // add image url
             // console.log(imgUrl);
             addDoc(imageCollection,{ url: imgUrl , createdAt: serverTimestamp()}).then(()=>{
-                console.log("image added to firestore");
+                // console.log("image added to firestore");
             }).catch(error =>{
                 console.log(error.message);
                 // alert(error.message);
@@ -60,7 +60,7 @@ const useStorage = (image) => {
             
         }
         );
-        console.log("ran");
+        // console.log("ran");
     },[image]);
     
     return  {progress, url, error};
